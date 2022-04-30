@@ -1,35 +1,44 @@
 // Styles
 import './App.css';
-// useState, useEffect
+// React
 import { useState, useEffect } from "react";
 // Firebase
 import firebase from "./firebase";
-import { getDatabase, ref, onValue, push, remove } from "firebase/database";
+import { getDatabase, ref, onValue, push, remove, set, update } from "firebase/database";
 
 
-function App() {
-  const [books, setBooks] = useState([]);
-  const [userInput, setUserInput] = useState("");
+const App = () => {
+  const [ exercises, setExercises ] = useState([]);
+  const [ userDayInput, setUserDayInput] = useState("");
+  const [ userTypeInput, setUserTypeInput ] = useState("");
+  const [ userLengthInput, setUserLengthInput ] = useState("");
 
   useEffect(() => {
-    const database = getDatabase(firebase);
-    const dbRef = ref(database);
+    const database = getDatabase(firebase)
+    const dbRef = ref(database)
 
     onValue(dbRef, (res) => {
-      // console.log(res.val());
       const newState = [];
       const data = res.val();
 
       for(let key in data) {
-        newState.push({key: key, name: data[key]});
+        newState.push(data[ key ]);
       }
-      setBooks(newState)
-      console.log(newState);
+
+      setExercises(newState);
     })
   }, [])
-  
-  const handleInputChange = (e) => {
-    setUserInput(e.target.value);
+
+  const handleInputDay = (e) => {
+    setUserDayInput(e.target.value);
+  }
+
+  const handleInputType = (e) => {
+    setUserTypeInput(e.target.value);
+  }
+
+  const handleInputLength = (e) => {
+    setUserLengthInput(e.target.value);
   }
 
   const handleSubmit = (e) => {
@@ -38,35 +47,32 @@ function App() {
     const database = getDatabase(firebase);
     const dbRef = ref(database);
 
-    push(dbRef, userInput);
-
-    setUserInput("");
+    push(dbRef, { userDayInput, userTypeInput, userLengthInput });
   }
 
-  const handleRemoveBook = (bookId) => {
-    const database = getDatabase(firebase);
-    const dbRef = ref(database, `/${bookId}`);
-
-    remove(dbRef);
-  }
-
-  return (
-    <div className="App">
+  return(
+    <div className='App'>
       <ul>
-        {books.map((book) => {
+        { exercises.map((workout, index) => {
           return(
-            <li key={book.key}>
-              <p>{book.name} {book.key}</p>
-              <button onClick={() => handleRemoveBook(book.key)}>Remove</button>
+            <li key={ index }>
+              <p>{ workout }</p>
             </li>
           );
-        })}
+        }) }
       </ul>
 
       <form action="submit">
-        <label htmlFor="newBook">Add a book to your bookshelf</label>
-        <input type="text" id="newBook" onChange={handleInputChange} value={userInput}/>
-        <button onClick={handleSubmit}>Add Book</button>
+        <label htmlFor="day">What day of the week</label>
+        <input type="text" id="day" onChange={ handleInputDay } value={ userDayInput } />
+
+        <label htmlFor="training">What form of exercise</label>
+        <input type="text" id="training" onChange={ handleInputType } value={ userTypeInput } />
+
+        <label htmlFor="duration">For how long</label>
+        <input type="text" id="duration" onChange={ handleInputLength } value={ userLengthInput } />
+
+        <button onClick={ handleSubmit }>Add a workout</button>
       </form>
     </div>
   );
