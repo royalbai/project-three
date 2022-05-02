@@ -11,3 +11,160 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* font-family: 'Poppins', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+/* Base Styles */
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 125%;
+}
+
+body {
+  max-width: 1920px;
+  margin: 0 auto;
+  background-color: #08022D;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+p {
+  font-weight: 300;
+}
+
+ul {
+  list-style: none;
+  margin-bottom: 150px;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  background-color: #3D20EF;
+  color: #fff;
+  border: none;
+  padding: 15px 0;
+  width: 100%;
+}
+
+button:hover,
+button:focus {
+  background-color: #FFD600;
+  color: #08022D;
+  cursor: pointer;
+}
+
+.wrapper {
+  max-width: 1260px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+
+header {
+  margin: 100px 0;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* About Styles */
+
+.about p {
+  margin: 50px 0;
+}
+
+/* Form Styles */
+
+form {
+  margin: 200px 0;
+}
+
+form button {
+  margin-top: 100px;
+}
+
+span {
+  display: none;
+  color: #FFD600;
+  text-align: center;
+}
+
+label {
+  width: 40%;
+}
+
+input {
+  width: 55%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #FFD600;
+  color: #fff;
+  font-size: 1rem;
+  padding-bottom: 10px;
+}
+
+input::placeholder {
+  color: #FFD600;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.dayOfTheWeek,
+.typeOfExercise,
+.durationOfWorkout {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+/* Planner Styles */
+
+.planner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+li {
+  background-color: #3D20EF;
+  padding: 40px 0;
+  margin: 25px 0;
+  border: 1px solid #FFD600;
+  border-radius: 25px;
+  width: 20%;
+}
+
+/* Footer Styles */
+
+footer {
+  font-size: 0.8rem;
+  margin-top: 200px;
+}
+
+/* Media */
