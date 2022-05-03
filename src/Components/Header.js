@@ -1,5 +1,6 @@
 // Header Image
 import header from "../assets/header.jpg";
+
 // Header Section
 const Header = () => {
     return(

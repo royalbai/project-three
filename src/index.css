@@ -14,6 +14,7 @@ code {
 
 /* font-family: 'Poppins', sans-serif; */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+/* Elements */
 
 /* Base Styles */
 
@@ -90,6 +91,18 @@ img {
 }
 
 /* About Styles */
+
+.about h2::before,
+.about h2::after {
+  content: url(./assets/slashes.svg);
+  padding: 30px;
+}
+
+.about h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .about p {
   margin: 50px 0;

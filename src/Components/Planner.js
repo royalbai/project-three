@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 // Firebase
 import { getDatabase, ref, onValue, push, remove, set, update } from "firebase/database";
 import firebase from "../firebase";
-
+// Forms Import
 import Forms from "./Forms";
 
+// Planner Section
 const Planner = () => {
     const [exercises, setExercises] = useState([]);
     const [userDayInput, setUserDayInput] = useState("");
