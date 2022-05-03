@@ -119,7 +119,6 @@ form button {
 }
 
 span {
-  display: none;
   color: #FFD600;
   text-align: center;
 }
@@ -133,13 +132,32 @@ input {
   background-color: transparent;
   border: none;
   border-bottom: 2px solid #FFD600;
-  color: #fff;
+  color: #FFD600;
   font-size: 1rem;
   padding-bottom: 10px;
 }
 
+select {
+  width: 55%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #FFD600;
+  color: #FFD600;
+  font-size: 1rem;
+  padding-bottom: 10px;
+}
+
+option {
+  color: #FFD600;
+  background-color: #08022D;
+}
+
 input::placeholder {
   color: #FFD600;
+}
+
+option:disabled {
+  color: #3D20EF;
 }
 
 .formContainer {

@@ -12,7 +12,8 @@ const Planner = () => {
     const [userDayInput, setUserDayInput] = useState("");
     const [userTypeInput, setUserTypeInput] = useState("");
     const [userDurationInput, setUserDurationInput] = useState("");
-
+    const [error, setError] = useState(false);
+    // Firebase Database
     useEffect(() => {
         const database = getDatabase(firebase)
         const dbRef = ref(database)
@@ -33,13 +34,13 @@ const Planner = () => {
             setExercises(newState);
         })
     }, [])
-
+    // User Database
     const newExercise = {
         day: userDayInput,
         type: userTypeInput,
         duration: userDurationInput
     }
-
+    // User's Values
     const handleDayChange = (e) => {
         setUserDayInput(e.target.value);
     }
@@ -49,32 +50,32 @@ const Planner = () => {
     const handleDurationChange = (e) => {
         setUserDurationInput(e.target.value);
     }
-
+    // Submit Request
     const handleSubmit = (e) => {
         e.preventDefault();
 
         const database = getDatabase(firebase);
         const dbRef = ref(database);
 
-        const showErr = (element) => {
-            element.style.display = "block";
+        const displayErr = (value) => {
+            if(value === false) {
+                setError(false)
+            } else {
+                setError(true)
+            }
         }
-        const hideErr = (element) => {
-            element.style.display = "none";
-        }
-
         const clearInputs = () => {
             push(dbRef, newExercise);
             setUserDayInput("");
             setUserTypeInput("");
             setUserDurationInput("");
+            displayErr(false);
         };
-
+        // Error or Not 
         userDayInput.length && userTypeInput.length && userDurationInput.length
-            ? clearInputs(hideErr(document.querySelector("span")))
-            : showErr(document.querySelector("span"))
+            ? clearInputs() : displayErr(true)
     }
-
+    // Remove Function
     const clearWeek = () => {
         const database = getDatabase(firebase);
         const dbRef = ref(database);
@@ -93,6 +94,7 @@ const Planner = () => {
             dayVal={ userDayInput }
             typeVal={ userTypeInput }
             durationVal={ userDurationInput }
+            err={ error }
             />
 
             <ul className="planner">
