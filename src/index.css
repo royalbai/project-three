@@ -111,8 +111,12 @@ img {
 /* Form Styles */
 
 form {
+  position: relative;
   margin: 200px 0;
+  padding-top: 100px;
 }
+
+
 
 form button {
   margin-top: 100px;
@@ -160,7 +164,20 @@ option:disabled {
   color: #3D20EF;
 }
 
+form::before {
+  position: absolute;
+  content: "";
+  background-image: url(./assets/form-back-image.jpg);
+  background-size: cover;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  opacity: 0.5;
+}
+
 .formContainer {
+  position: relative;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -189,6 +206,10 @@ li {
   border: 1px solid #FFD600;
   border-radius: 25px;
   width: 20%;
+}
+
+li::after {
+  content: url(./assets/arrow.svg);
 }
 
 /* Footer Styles */
