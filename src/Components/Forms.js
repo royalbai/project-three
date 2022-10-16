@@ -5,7 +5,7 @@ const Forms = (props) => {
     const [week, setWeek] = useState(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]);
 
     return(
-        <form action="submit">
+        <form className="schedule" action="submit">
             <div className="formContainer">
                 <div className="dayOfTheWeek">
                     <label htmlFor="day">Day of the week:</label>

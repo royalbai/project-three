@@ -76,6 +76,56 @@ button:focus {
   margin: 0 auto;
 }
 
+/* Sign In & Sign up Styles */
+
+.instructions a {
+  color: #FFD600;
+}
+
+.instructions {
+  padding: 150px 0;
+}
+
+.infoEntry {
+  margin: 0 auto;
+  width: 25%;
+}
+
+.infoEntry button {
+  margin: 100px 0;
+}
+
+.infoEntry label, 
+.infoEntry input {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px 30px;
+}
+
+/* Account Styles */
+
+.account {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.account h3 {
+  margin-right: 20px;
+}
+
+.logout {
+  display: flex;
+  justify-content: end;
+}
+
+.logout button {
+  width: 10%;
+  padding: 5px 10px;
+  margin-top: 20px;
+}
+
 /* Header Styles */
 
 header {
@@ -110,15 +160,13 @@ img {
 
 /* Form Styles */
 
-form {
+.schedule {
   position: relative;
   margin: 200px 0;
   padding-top: 100px;
 }
 
-
-
-form button {
+.schedule button {
   margin-top: 100px;
 }
 
@@ -127,11 +175,11 @@ span {
   text-align: center;
 }
 
-label {
+.schedule label {
   width: 40%;
 }
 
-input {
+.schedule input {
   width: 55%;
   background-color: transparent;
   border: none;
@@ -141,7 +189,7 @@ input {
   padding-bottom: 10px;
 }
 
-select {
+.schedule select {
   width: 55%;
   background-color: transparent;
   border: none;
@@ -151,20 +199,20 @@ select {
   padding-bottom: 10px;
 }
 
-option {
+.schedule option {
   color: #FFD600;
   background-color: #08022D;
 }
 
-input::placeholder {
+.schedule input::placeholder {
   color: #FFD600;
 }
 
-option:disabled {
+.schedule option:disabled {
   color: #3D20EF;
 }
 
-form::before {
+.schedule::before {
   position: absolute;
   content: "";
   background-image: url(./assets/form-back-image.jpg);
