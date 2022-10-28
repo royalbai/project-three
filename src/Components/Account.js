@@ -18,9 +18,9 @@ function Account() {
         try {
             await logout();
             navigate("/");
-            console.log("you are logged out");
+            // console.log("you are logged out");
         } catch (e) {
-            console.log(e.message);
+            // console.log(e.message);
         }
     }
 
